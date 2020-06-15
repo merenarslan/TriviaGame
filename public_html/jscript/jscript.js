@@ -35,6 +35,8 @@ function resetGame() {
     document.getElementById('player').innerHTML= player;
 
     // TODO reset gameOver and # of empty cells
+    empty = 9;
+    gameOver= false;
 }
 
 /* Function cellClicked() is called
