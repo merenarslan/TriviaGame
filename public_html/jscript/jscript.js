@@ -31,7 +31,8 @@ function resetGame() {
     }
   
     // TODO reset player back to X and update it on the page
-    
+    var player = "X";
+    document.getElementById('player').innerHTML= player;
 
     // TODO reset gameOver and # of empty cells
 }
@@ -52,7 +53,7 @@ function cellClicked(cell) {
 
     // TODO: decrease # of empty cells by 1
   
-    // TODO: document this code from class
+    // TODO: document this code from class 
     cell.innerHTML = player;
     checkWin();    
     player = (player === "X") ? "O" : "X";
