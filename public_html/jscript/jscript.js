@@ -55,7 +55,8 @@ function cellClicked(cell) {
 
     // TODO: decrease # of empty cells by 1
   
-    // TODO: document this code from class 
+    // TODO: document this code from class
+    var a = document.querySelectorAll('td');    
     cell.innerHTML = player;
     checkWin();    
     player = (player === "X") ? "O" : "X";
