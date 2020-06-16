@@ -75,15 +75,17 @@ function checkWin() {
     for ( i = 0; i < winSets.length; i++) {
         if (board[winSets[i][0]].innerHTML == board[winSets[i][1]].innerHTML 
             && board[winSets[i][1]].innerHTML == board[winSets[i][2]].innerHTML 
-            && board[winSets[i][0]].innerHTML != "") {
-                
-            console.log("We have a winner!");
+            && board[winSets[i][0]].innerHTML != "") {           
 
             // TODO: replace console.log("We have a winner!") with:
             //  - set gameOver variable: game is now over  
             //  - display "X Wins!" or "O Wins!" in the winner H3
             //  - call displayWin(true) function
-            //  - break out of this loop: no point in continuing
+            //  - break out of this loop: no point in continuing            
+            
+            gameOver = true;
+            document.getElementById('winner').innerHTML = player + " Wins!";            
+            displayWin(true);            
         }
     }
 
