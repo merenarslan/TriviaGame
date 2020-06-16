@@ -57,7 +57,7 @@ function cellClicked(cell) {
   
     // TODO: document this code from class
     var a = document.querySelectorAll('td');
-    if(empty > 0 && a[cell].equals != ''){  
+    if(empty > 0 && a[cell].innerHTML == '' && gameOver != true){  
         a[cell].innerHTML= player;        
         empty -=1;
     cell.innerHTML = player;
