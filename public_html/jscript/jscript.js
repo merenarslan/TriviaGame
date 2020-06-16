@@ -94,10 +94,11 @@ function checkWin() {
     // - set gameOver variable: game is now over  
     // - display "No one wins! :(" in the winner H3
     // - call displayWin(true) function
-    
+    if(empty == 0){
     gameOver = true;
     document.getElementById('winner').innerHTML = "No one wins! :( ";
     displayWin(true);
+    }
     
 }
 
