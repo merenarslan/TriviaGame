@@ -56,11 +56,15 @@ function cellClicked(cell) {
     // TODO: decrease # of empty cells by 1
   
     // TODO: document this code from class
-    var a = document.querySelectorAll('td');    
+    var a = document.querySelectorAll('td');
+    if(empty > 0 && a[cell].equals != ''){  
+        a[cell].innerHTML= player;        
+        empty -=1;
     cell.innerHTML = player;
     checkWin();    
     player = (player === "X") ? "O" : "X";
     document.getElementById("player").innerHTML = player;
+    }
 }
 
 /* Function checkWin() is called to check all winning combinations and display results
