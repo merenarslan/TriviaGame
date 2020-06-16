@@ -95,6 +95,10 @@ function checkWin() {
     // - display "No one wins! :(" in the winner H3
     // - call displayWin(true) function
     
+    gameOver = true;
+    document.getElementById('winner').innerHTML = "No one wins! :( ";
+    displayWin(true);
+    
 }
 
 /* Enhancements you can try:
