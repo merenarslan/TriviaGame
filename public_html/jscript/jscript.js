@@ -1,6 +1,6 @@
-/* Your Name Here */
+/* Melih Eren Arslan */
 
-// TODO document this
+// This will create an array between for cells. It will go up to 8 and starts from 0.
 var board = document.getElementsByTagName("td");
 
 // assuming we index the 9 tic tac toe cells from left to right, top to
@@ -10,7 +10,7 @@ var winSets = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8],
 // X always gets to go first
 var player = "X";
 
-// keep track of how many cells are empty at any time
+// there is 9 empty cells in total
 var empty = 9;
 
 // keep track of game status - false if still playing
@@ -25,18 +25,22 @@ var gameOver = false;
  */
 function resetGame() {
 
-    // TODO: document this code from class
+    // Reset each cell and make them empty.   
+    
     for ( i = 0; i < board.length; i++) {
         board[i].innerHTML = "";
     }
   
-    // TODO reset player back to X and update it on the page
+    // Reset player back to X, then it changes the player x again as a first player.
     var player = "X";
-    document.getElementById('player').innerHTML= player;
+    document.getElementById('player').innerHTML= player;    
+    
 
-    // TODO reset gameOver and # of empty cells
+    // Reset gameOver and # of empty cells number.
     empty = 9;
     gameOver= false;
+   
+    
 }
 
 /* Function cellClicked() is called
@@ -48,16 +52,20 @@ function resetGame() {
  4. flips (changes) the current player
  5. updates the message to the current player
  */
-function cellClicked(cell) {
-
-    //TODO: 1-5 should occur only when the selected cell is empty and the game is 
-    // still in progress!
-
-    // TODO: decrease # of empty cells by 1
+function cellClicked(cell) {     
+    
+    
+    // If the game resets on O turn, the game will start again with X.
+    if(empty == 9) {
+        player = "X";
+    }
+    
+    
   
-    // TODO: document this code from class
+    // This code checks if the cells empty, and if the game is still running. 
+    // If not, the user will not be able to click to the cell.    
     var a = document.querySelectorAll('td');
-    if(empty > 0 && a[cell].innerHTML == '' && gameOver != true){  
+    if(empty > 0 && a[cell].innerHTML === '' && gameOver !== true){  
         a[cell].innerHTML= player;        
         empty -=1;
     cell.innerHTML = player;
@@ -71,17 +79,12 @@ function cellClicked(cell) {
  */
 function checkWin() {
 
-    // TODO: document all of the code from class
+    // After each click, it will control if there is a winning combination.
+    // If there is a winning combination it will display the dinner.
     for ( i = 0; i < winSets.length; i++) {
         if (board[winSets[i][0]].innerHTML == board[winSets[i][1]].innerHTML 
             && board[winSets[i][1]].innerHTML == board[winSets[i][2]].innerHTML 
-            && board[winSets[i][0]].innerHTML != "") {           
-
-            // TODO: replace console.log("We have a winner!") with:
-            //  - set gameOver variable: game is now over  
-            //  - display "X Wins!" or "O Wins!" in the winner H3
-            //  - call displayWin(true) function
-            //  - break out of this loop: no point in continuing            
+            && board[winSets[i][0]].innerHTML != "") {                    
             
             gameOver = true;
             document.getElementById('winner').innerHTML = player + " Wins!";            
@@ -89,14 +92,10 @@ function checkWin() {
         }
     }
 
-    // TODO: if there are no empty cells left and game is not yet over,
-    //       it means that there is no winner for this game
-    // - set gameOver variable: game is now over  
-    // - display "No one wins! :(" in the winner H3
-    // - call displayWin(true) function
+    // If there is no empty cell left and no one won it will display a non winner message.
     if(empty == 0){
     gameOver = true;
-    document.getElementById('winner').innerHTML = "No one wins! :( ";
+    document.getElementById('winner').innerHTML = "No one wins! :( Play Smart Next Time :) ";
     displayWin(true);
     }
     
